@@ -1,0 +1,21 @@
+name: TodoPoly
+options:
+  bundleIdPrefix: org.polygui
+packages:
+  PolyNative:
+    url: https://github.com/poly-gui/swift-poly-native
+    branch: main
+settings:
+  GENERATE_INFOPLIST_FILE: YES
+targets:
+  TodoPoly:
+    type: application
+    platform: macOS
+    deploymentTarget: "10.15"
+    sources: [TodoPoly]
+    dependencies:
+      - package: PolyNative
+    postCompileScripts:
+      - script: |
+          mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+          cp "${SRCROOT}/../build/bundle" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bundle"

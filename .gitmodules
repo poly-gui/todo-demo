@@ -1,0 +1,3 @@
+[submodule "gtk/lib/gtk-poly"]
+	path = gtk/lib/gtk-poly
+	url = https://github.com/poly-gui/gtk-poly
